@@ -23,7 +23,7 @@ def bfs(i,j,h):
     else:
         water = 0
         for pos in pos_li:
-            ground[pos[0]][pos[1]]+=1 # 문 높이 1 높여주기
+            ground[pos[0]][pos[1]]+=1 # 물 높이 1 높여주기
             water +=1 # 총 물의 양을 구하기 위한 변수
         return water
 
