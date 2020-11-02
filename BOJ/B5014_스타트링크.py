@@ -1,37 +1,22 @@
-def solution(arr):
-    def check(r, c, s):
-        global one, zero
-        sum_ele = 0
-
-        for i in range(s):
-            sum_ele += sum(arr[r+i][c:s])
-        if s == 1:
-            if arr[r][c] == 1:
-                answer[1]+=1
-                return
-            else:
-                answer[0]+=1
-                return
-        if sum_ele == 0:
-            answer[0]+=1
+def bfs(s):
+    global F,S,G,U,D,min_cnt,tmp_cnt
+    q =list()
+    q.append(s)
+    visited[s]=1
+    while q:
+        now_floor= q.pop(0)
+        if now_floor==G:
+            print(visited[now_floor]-1)
             return
-        elif sum_ele == s * s:
-            answer[1]+=1
-            return
+        for i in range(len(dir_li)):
+            next_floor = now_floor+dir_li[i]
+            if 1<=next_floor<=F and not visited[next_floor]:
+                q.append(next_floor)
+                visited[next_floor]= visited[now_floor]+1
+    print('use the stairs')
 
-        check(r, c, s // 2)
-        check(r + s // 2, c, s // 2)
-        check(r, c + s // 2, s // 2)
-        check(r + s // 2, c + s // 2, s // 2)
-        return
-    answer = [0,0]
-    N = int(len(arr))
-    one = 0
-    zero = 0
-    check(0, 0, N)
-    # answer.append(zero)
-    # answer.append(one)
-    print(answer)
-    return answer
+F,S,G,U,D = map(int,input().split())
+visited = [0]*(F+1)
+dir_li = [U,-D]
 
-solution([[1,1,1,1,1,1,1,1],[0,1,1,1,1,1,1,1],[0,0,0,0,1,1,1,1],[0,1,0,0,1,1,1,1],[0,0,0,0,0,0,1,1],[0,0,0,0,0,0,0,1],[0,0,0,0,1,0,0,1],[0,0,0,0,1,1,1,1]])
+bfs(S)
