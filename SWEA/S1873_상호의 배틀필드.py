@@ -5,7 +5,7 @@ for tc in range(1,T+1):
     H,W = map(int,input().split()) # H 높이(행) W 열
     mapping = [list(input()) for _ in range(H)]
     keyboard = ['<','>','^','v']
-    dir_li = [(-1,0),(1,0),(0,-1),(0,1)] #<,>,^,v (열,행)
+    dir_li = [(-1,0),(1,0),(0,-1),(0,1)] #^,v,<,> (열,행)
 
     command_dic = {'U': 0, 'D': 1, 'L': 2, 'R': 3, 'S': 4,
                     '^': 0, 'v': 1, '<': 2, '>': 3, 0: '^', 1: 'v', 2: '<', 3: '>'}
