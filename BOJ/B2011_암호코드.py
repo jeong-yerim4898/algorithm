@@ -1,3 +1,4 @@
+# 경우의 수는 90프로 dp
 a= list(map(int,list(input())))
 l = len(a)
 dp= [0]*(l+1)
