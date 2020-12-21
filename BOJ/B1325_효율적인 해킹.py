@@ -9,7 +9,8 @@ def bfs(s):
     q.append(s)
     cnt=1
     while q:
-        i = q.popleft()
+        # i = q.pop() #dfs
+        i = q.popleft() #bfs
         for j in mapping[i]:
             if not visited[j]:
                 q.append(j)
