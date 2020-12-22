@@ -1,3 +1,4 @@
+# time error
 def isprime(n):
     if n<2:
         return False
@@ -6,12 +7,12 @@ def isprime(n):
         if n%k==0:
             return 0
     return 1
-nums=list(map(int,input().split()))
 
+nums=list(map(int,input().split()))
 for n in nums:
     if n<2:
         print('number one')
     elif isprime(n):
         print('prime number')
     else:
-         print('composite number')
+        print('composite number')
